@@ -79,8 +79,20 @@ export function WhatsAppWidget() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    className="flex-1 rounded-xl border-gray-200 focus:border-green-500 focus:ring-green-500"
+                    className="
+                      flex-1
+                      rounded-xl
+                      bg-white
+                      text-gray-900
+                      border-gray-200
+                      placeholder:text-gray-500
+                      placeholder:opacity-100
+                      focus:border-green-500
+                      focus:ring-2
+                      focus:ring-green-500/20
+                    "
                   />
+
                   <Button
                     onClick={handleSendMessage}
                     disabled={!message.trim()}

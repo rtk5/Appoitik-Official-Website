@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Smartphone, Calendar } from 'lucide-react';
+import { Smartphone, Calendar, User } from 'lucide-react';
 
 export function DownloadApps() {
   return (
@@ -15,15 +15,15 @@ export function DownloadApps() {
         className="text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Download the App
+          Download the Apps
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Get started with our mobile apps designed for healthcare professionals
+          Mobile apps designed for doctors, clinics, and patients
         </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        {/* Appointik - Main App */}
+      <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        {/* Appointik – Clinic App */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -35,13 +35,14 @@ export function DownloadApps() {
             <div className="w-16 h-16 bg-royal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Smartphone className="w-8 h-8 text-white" />
             </div>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Appointik – Medical Practice Management App
+              Appointik – Clinic Management App
             </h3>
-            
+
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Complete clinic management solution with EMR, billing, prescriptions, and patient management. Everything you need to run your practice efficiently.
+              Complete clinic management solution with EMR, billing, prescriptions,
+              appointments, and patient records.
             </p>
 
             <a
@@ -59,11 +60,11 @@ export function DownloadApps() {
           </Card>
         </motion.div>
 
-        {/* Appointik G - Appointment App */}
+        {/* Appointik G – General Scheduling */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           className="text-center"
         >
@@ -71,17 +72,55 @@ export function DownloadApps() {
             <div className="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Calendar className="w-8 h-8 text-white" />
             </div>
-            
+
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Appointik G – General Appointment Scheduling App
+              Appointik G – Appointment Scheduling App
             </h3>
-            
+
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Appointik G (General) is a powerful appointment scheduling and management app designed to streamline your business operations. Whether you're managing a clinic, salon, consultancy, or any service-based business, Appointik G helps you stay organized and efficient.
+              A flexible appointment scheduling app for clinics, salons,
+              consultancies, and service-based businesses.
             </p>
 
             <a
               href="https://play.google.com/store/apps/details?id=com.samrithtech.appointikg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-transform hover:scale-105"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Get it on Google Play"
+                className="h-14 mx-auto"
+              />
+            </a>
+          </Card>
+        </motion.div>
+
+        {/* Appointik Patient App */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Card className="p-8 bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100 rounded-3xl shadow-lg">
+            <div className="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <User className="w-8 h-8 text-white" />
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Appointik Patient App
+            </h3>
+
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              A simple app for patients to book appointments, view prescriptions,
+              access reports, and stay connected with their clinic.
+            </p>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.samrithtech.appointik.patient"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block transition-transform hover:scale-105"
@@ -105,16 +144,16 @@ export function DownloadApps() {
         className="text-center mt-12"
       >
         <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          <div className="text-center">
+          <div>
             <div className="text-2xl font-bold text-royal-600 mb-1">4.7★</div>
             <div className="text-sm text-gray-600">Google Play Rating</div>
           </div>
-          <div className="text-center">
+          <div>
             <div className="text-2xl font-bold text-teal-600 mb-1">1,000+</div>
             <div className="text-sm text-gray-600">Active Users</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-blue-600 mb-1">99.9%</div>
+          <div>
+            <div className="text-2xl font-bold text-indigo-600 mb-1">99.9%</div>
             <div className="text-sm text-gray-600">Uptime</div>
           </div>
         </div>

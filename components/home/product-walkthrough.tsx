@@ -53,8 +53,8 @@ const walkthrough = [
     id: 'prescription',
     icon: FileText,
     title: 'Digital Prescriptions',
-    description: 'Generate professional prescriptions with drug interaction warnings',
-    features: ['Drug database', 'Interaction alerts', 'Digital signatures'],
+    description: 'Generate professional prescriptions with custom prescription templates',
+    features: ['Drug database', 'Print prescriptions', 'Digital signatures'],
     mockData: {
       title: 'e-Prescription',
       prescription: {

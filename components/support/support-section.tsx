@@ -11,12 +11,8 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Mail, 
   MessageCircle, 
-  Clock, 
   CheckCircle, 
-  ArrowRight,
-  Headphones,
-  FileText,
-  Users
+  FileText
 } from 'lucide-react';
 
 const supportOptions = [
@@ -34,6 +30,7 @@ const supportOptions = [
     description: 'Quick help via WhatsApp',
     action: 'WhatsApp Us',
     color: 'bg-green-100 text-green-600',
+    href: 'https://wa.me/919663144725',
     isWhatsApp: true
   },
   {
@@ -41,7 +38,7 @@ const supportOptions = [
     title: 'Documentation',
     description: 'Browse our help articles',
     action: 'View Docs',
-    href: '/coming-soon',
+    href: 'https://appointik.blogspot.com/',
     color: 'bg-purple-100 text-purple-600'
   }
 ];
@@ -67,10 +64,11 @@ const faqs = [
 
 export function SupportSection() {
   const [formData, setFormData] = useState({
-    name: '',
+    firstname: '',
+    lastname: '',
+    mobile: '',
     email: '',
-    subject: '',
-    message: ''
+    comments: ''
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -80,14 +78,18 @@ export function SupportSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Support Request');
+  const handleSubmit = () => {
     const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      `First Name: ${formData.firstname}
+Last Name: ${formData.lastname}
+Mobile: ${formData.mobile}
+Email: ${formData.email}
+
+Message:
+${formData.comments}`
     );
-    window.location.href = `mailto:appointikteam@gmail.com?subject=${subject}&body=${body}`;
+
+    window.location.href = `mailto:appointikteam@gmail.com?subject=Support Request&body=${body}`;
   };
 
   const handleWhatsAppClick = () => {
@@ -169,88 +171,175 @@ export function SupportSection() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a message
             </h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <div className="space-y-6">
+              {/* Name Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="firstname" className="text-slate-700 font-medium">
+                    First Name *
+                  </Label>
+                  <Input
+                    id="firstname"
+                    name="firstname"
+                    placeholder="First name"
+                    value={formData.firstname}
+                    onChange={handleInputChange}
+                    required
+                    className="
+                      bg-slate-50
+                      text-slate-900
+                      placeholder:text-slate-500
+                      placeholder:opacity-100
+                      border-slate-200
+                      focus:border-royal-500
+                      focus:ring-2
+                      focus:ring-royal-500/20
+                      rounded-xl
+                    "
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="lastname" className="text-slate-700 font-medium">
+                    Last Name *
+                  </Label>
+                  <Input
+                    id="lastname"
+                    name="lastname"
+                    placeholder="Last name"
+                    value={formData.lastname}
+                    onChange={handleInputChange}
+                    required
+                    className="
+                      bg-slate-50
+                      text-slate-900
+                      placeholder:text-slate-500
+                      placeholder:opacity-100
+                      border-slate-200
+                      focus:border-royal-500
+                      focus:ring-2
+                      focus:ring-royal-500/20
+                      rounded-xl
+                    "
+                  />
+                </div>
+              </div>
+
+              {/* Contact Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="mobile" className="text-slate-700 font-medium">
+                    Mobile *
+                  </Label>
+                  <Input
+                    id="mobile"
+                    name="mobile"
+                    type="tel"
+                    placeholder="Mobile number"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required
+                    className="
+                      bg-slate-50
+                      text-slate-900
+                      placeholder:text-slate-500
+                      placeholder:opacity-100
+                      border-slate-200
+                      focus:border-royal-500
+                      focus:ring-2
+                      focus:ring-royal-500/20
+                      rounded-xl
+                    "
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-slate-700 font-medium">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@email.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="
+                      bg-slate-50
+                      text-slate-900
+                      placeholder:text-slate-500
+                      placeholder:opacity-100
+                      border-slate-200
+                      focus:border-royal-500
+                      focus:ring-2
+                      focus:ring-royal-500/20
+                      rounded-xl
+                    "
+                  />
+                </div>
+              </div>
+
+              {/* Message */}
               <div className="space-y-2">
-                <Label htmlFor="name">Name *</Label>
-                <Input 
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                <Label htmlFor="comments" className="text-slate-700 font-medium">
+                  Message
+                </Label>
+                <Textarea
+                  id="comments"
+                  name="comments"
+                  placeholder="Tell us how we can help you…"
+                  rows={5}
+                  value={formData.comments}
                   onChange={handleInputChange}
-                  placeholder="Your full name"
-                  className="rounded-xl"
-                  required
+                  className="
+                    bg-slate-50
+                    text-slate-900
+                    placeholder:text-slate-500
+                    placeholder:opacity-100
+                    border-slate-200
+                    focus:border-royal-500
+                    focus:ring-2
+                    focus:ring-royal-500/20
+                    rounded-xl
+                  "
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
-                <Input 
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="your@email.com"
-                  className="rounded-xl"
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input 
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  placeholder="What can we help you with?"
-                  className="rounded-xl"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message *</Label>
-                <Textarea 
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Tell us more about your requirements..."
-                  className="rounded-xl min-h-[120px]"
-                  required
-                />
-              </div>
-
-              <Button 
-                type="submit"
+              {/* Submit */}
+              <Button
+                onClick={handleSubmit}
                 className="w-full bg-royal-500 hover:bg-royal-600 text-white rounded-xl py-3 font-semibold"
               >
-                <span className="flex items-center justify-center space-x-2">
-                  <span>Send Message</span>
-                  <ArrowRight className="w-4 h-4" />
-                </span>
+                Send Message
               </Button>
-            </form>
+            </div>
 
-            <div className="mt-8 pt-6 border-t">
-              <h3 className="font-semibold text-gray-900 mb-4">Direct contact:</h3>
-              <div className="space-y-3">
-                <a 
-                  href="mailto:appointikteam@gmail.com" 
-                  className="flex items-center space-x-3 text-gray-600 hover:text-royal-600 transition-colors"
+            {/* Divider */}
+            <div className="my-8 border-t" />
+
+            {/* Direct Contact */}
+            <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
+              <div>
+                <p className="font-medium text-gray-900 mb-1">Email us</p>
+                <a
+                  href="mailto:appointikteam@gmail.com"
+                  className="hover:text-royal-600 transition-colors"
                 >
-                  <Mail className="w-5 h-5" />
-                  <span>appointikteam@gmail.com</span>
+                  appointikteam@gmail.com
                 </a>
-                <button 
-                  onClick={handleWhatsAppClick}
-                  className="flex items-center space-x-3 text-gray-600 hover:text-royal-600 transition-colors"
+              </div>
+
+              <div>
+                <p className="font-medium text-gray-900 mb-1">WhatsApp</p>
+                <a
+                  href="https://wa.me/919663144725"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-600 transition-colors"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>WhatsApp Support</span>
-                </button>
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
           </Card>
@@ -281,30 +370,6 @@ export function SupportSection() {
             </div>
           </div>
 
-          {/* Support Hours 
-          <Card className="p-6 bg-gradient-to-r from-royal-50 to-teal-50 border-royal-100 rounded-2xl">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-royal-500 rounded-xl flex items-center justify-center">
-                <Clock className="w-5 h-5 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">Support Hours</h3>
-            </div>
-            <div className="space-y-2 text-gray-700">
-              <div className="flex justify-between">
-                <span>Email Support:</span>
-                <span className="font-medium">24/7</span>
-              </div>
-              <div className="flex justify-between">
-                <span>WhatsApp Support:</span>
-                <span className="font-medium">9 AM - 6 PM IST</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Response Time:</span>
-                <span className="font-medium">Within 2 hours</span>
-              </div>
-            </div>
-          </Card>
-          */}
           {/* Quick Links */}
           <Card className="p-6 bg-white shadow-lg rounded-2xl border-0">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
