@@ -7,78 +7,85 @@ import { Star, TrendingUp, Users, Clock } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Dr. Pallavi Matta',
-    specialty: 'General Physician',
-    location: 'Delhi',
-    quote: 'Appointik has transformed how I manage my clinic. The offline capability is a game-changer during network issues, and my patients love the online booking system.',
+    name: 'Amit Agrawal',
+    specialty: 'Clinic Owner',
+    location: 'India',
+    quote:
+      'Very good app. I have been using it for the last 5 months. Communication and support are excellent, and most requested updates are already implemented. One of the best clinic management apps I have used.',
     rating: 5,
     metrics: [
-      { label: 'No-shows reduced', value: '45%' },
-      { label: 'Time saved daily', value: '2 hours' },
-      { label: 'Patient satisfaction', value: '98%' }
+      { label: 'Usage duration', value: '5+ months' },
+      { label: 'Support quality', value: 'Excellent' },
+      { label: 'Feature updates', value: 'Regular' }
     ]
   },
   {
-    name: 'Dr. Gokula Kannan',
-    specialty: 'Cardiologist',
-    location: 'Chennai',
-    quote: 'The EMR system is intuitive and the prescription module saves me hours every day. Patient records are always accessible and well-organized.',
+    name: 'Dr Harsh',
+    specialty: 'Medical Practitioner',
+    location: 'India',
+    quote:
+      'They deserve 10 stars. Every suggestion is taken seriously and implemented in updates. Very affordable monthly plans and excellent service. Truly value for money.',
     rating: 5,
     metrics: [
-      { label: 'Daily time saved', value: '3 hours' },
-      { label: 'Record accuracy', value: '99.8%' },
-      { label: 'Prescription speed', value: '5x faster' }
+      { label: 'Value for money', value: '★★★★★' },
+      { label: 'Responsiveness', value: 'Very High' },
+      { label: 'Feature adoption', value: 'Fast' }
     ]
   },
   {
-    name: 'Dr. Thabani Thata',
-    specialty: 'Pediatrician',
-    location: 'Mumbai',
-    quote: 'Perfect for small clinics like mine. The pricing is very reasonable and the features are exactly what I need. Highly recommended for fellow practitioners.',
+    name: 'Samit',
+    specialty: 'OPD Practitioner',
+    location: 'India',
+    quote:
+      'After trying many OPD management apps for 1–2 years, I finally found Appointik. They listen to suggestions and fix problems. My search ends here.',
     rating: 5,
     metrics: [
-      { label: 'Efficiency increase', value: '60%' },
-      { label: 'Cost savings', value: '₹15,000/mo' },
-      { label: 'Setup time', value: '1 day' }
+      { label: 'Search duration', value: '2 years' },
+      { label: 'Reliability', value: 'High' },
+      { label: 'User satisfaction', value: '★★★★★' }
     ]
   },
   {
-    name: 'Dr. Sunita Rao',
-    specialty: 'Dermatologist',
-    location: 'Bangalore',
-    quote: 'The inventory management feature is excellent. I can track all my supplies and get alerts when stock is low. Everything is so well integrated.',
+    name: 'Dr Fareed Rahman',
+    specialty: 'Clinic Owner',
+    location: 'India',
+    quote:
+      'User-friendly and very useful for daily clinic activities. Support is good and subscription plans are worth continuing. Waiting for upcoming feature updates.',
     rating: 5,
     metrics: [
-      { label: 'Stock-outs eliminated', value: '100%' },
-      { label: 'Inventory accuracy', value: '99.5%' },
-      { label: 'Ordering efficiency', value: '80% faster' }
+      { label: 'Daily usability', value: 'High' },
+      { label: 'Support quality', value: 'Good' },
+      { label: 'Retention decision', value: 'Subscribed' }
     ]
   },
   {
-    name: 'Dr. Rajesh Kumar',
-    specialty: 'Orthopedic Surgeon',
-    location: 'Pune',
-    quote: 'Outstanding customer support and regular updates. The team truly understands healthcare workflows. This software has made my practice more efficient.',
+    name: 'Dr Yogesh Mainkar',
+    specialty: 'Medical Practitioner',
+    location: 'India',
+    quote:
+      'Very useful and user-friendly. Plans are unbelievably economical. After thorough research and trials of similar apps, I decided to stick with Appointik.',
     rating: 5,
     metrics: [
-      { label: 'Patient satisfaction', value: '35% ↑' },
-      { label: 'Revenue growth', value: '25%' },
-      { label: 'Support response', value: '<2 hours' }
+      { label: 'Cost efficiency', value: 'Excellent' },
+      { label: 'Comparison outcome', value: 'Best choice' },
+      { label: 'Adoption confidence', value: 'High' }
     ]
   },
   {
-    name: 'Dr. Meera Patel',
-    specialty: 'Gynecologist',
-    location: 'Ahmedabad',
-    quote: 'The billing system is GST compliant and makes accounting so much easier. Insurance claim processing is seamless. Excellent value for money.',
+    name: 'Ishu Solanki',
+    specialty: 'Clinic Owner',
+    location: 'India',
+    quote:
+      'Great app with the best pricing. The biggest strength is the technical support, which most apps lack. Used it for over a year and highly recommend taking the trial.',
     rating: 5,
     metrics: [
-      { label: 'Billing errors reduced', value: '90%' },
-      { label: 'Claim processing', value: '3x faster' },
-      { label: 'Accounting time saved', value: '70%' }
+      { label: 'Usage duration', value: '1+ year' },
+      { label: 'Tech support', value: 'Outstanding' },
+      { label: 'Recommendation', value: 'Strong' }
     ]
   }
 ];
+
 
 export function SuccessStoriesSection() {
   return (
